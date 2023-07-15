@@ -8,7 +8,7 @@ const app = express();
 let books = [];
 
 // Baca file CSV dan masukkan datanya ke dalam array books
-fs.createReadStream('books.csv')
+fs.createReadStream('data/books.csv')
   .pipe(csv())
   .on('data', (data) => {
     books.push(data);
