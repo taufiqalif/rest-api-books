@@ -20,3 +20,20 @@ exports.views = function(req, res){
     }
   });
 };
+
+
+// menampikan data berdasarkan id
+
+exports.viewsid = function(req, res){
+  let id = req.params.id;
+  connection.query('SELECT * FROM books WHERE id = ?', [id], function(error, rows, fileds){
+    if(error){
+      connection.log(error);
+    }else {
+      response.ok(rows, res);
+    }
+  });
+};
+
+
+
