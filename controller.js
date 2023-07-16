@@ -38,7 +38,7 @@ exports.viewsid = function(req, res){
 
 
 // menambahkan data buku
-exports.add = function(req, res){
+exports.tambahBuku = function(req, res){
   var title = req.body.title;
   var author = req.body.author;
   var publisher = req.body.publisher;
@@ -46,14 +46,16 @@ exports.add = function(req, res){
   var page = req.body.page;
   var BookContents = req.body.BookContents;
 
-  connection.query('INSERT INTO books (title, author, publisher, year, page, BookContents) VALUES (?, ?, ?, ?, ?, ?)', [title, author, publisher, year, page, BookContents], function(error, rows, fileds){
+  connection.query('INSERT INTO books (title, author, publisher, year, page, BookContents) VALUES (?, ?, ?, ?, ?, ?)', [title, author, publisher, year, page, BookContents], 
+  function(error, rows, fileds){
     if(error){
-      connection.log(error);
-    }else {
-      response.ok(rows, res);
+      console.log(error);
+    } else {
+      response.ok("Berhasil menambah data",res);
     }
   });
 };
+
 
 
 

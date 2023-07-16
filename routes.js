@@ -13,5 +13,5 @@ module.exports = function(app) {
     .get(jsonku.viewsid);
 
   app.route("/tambah")
-    .post(jsonku.add);
+    .post(jsonku.tambahBuku);
 }
