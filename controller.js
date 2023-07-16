@@ -56,6 +56,25 @@ exports.tambahBuku = function(req, res){
   });
 };
 
+// mengubah data berdasarkan id
 
+exports.ubahData = function(req , res){
+  var id = req.body.id;
+  var title = req.body.title;
+  var author = req.body.author;
+  var publisher = req.body.publisher;
+  var year = req.body.year;
+  var page = req.body.page;
+  var BookContents = req.body.BookContents;
+
+  connection.query('UPDATE books SET title = ?, author = ?, publisher = ?, year = ?, page = ?, BookContents = ? WHERE id = ?', [title, author, publisher, year, page, BookContents, id],
+  function(error, rows, fileds){
+    if(error){
+      console.log(error);
+    } else {
+      response.ok("Berhasil mengubah data",res);
+    }
+  });
+};
 
 
